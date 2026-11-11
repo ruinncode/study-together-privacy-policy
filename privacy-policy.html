@@ -3,293 +3,793 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1114" media="(prefers-color-scheme: dark)">
   <title>Privacy Policy - Study Together</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
+    :root {
+      color-scheme: light dark;
+
+      --bg: #ffffff;
+      --surface: #f6f7f9;
+      --text: #16181d;
+      --text-secondary: #414854;
+      --text-tertiary: #5c6470;
+      --border: #e3e6eb;
+      --border-strong: #cdd2da;
+      --accent: #2c5cc5;
+      --accent-soft: rgba(44, 92, 197, 0.14);
+
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+      --container: 40rem;
+      --gutter: 1.25rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1114;
+        --surface: #171a1f;
+        --text: #eceef1;
+        --text-secondary: #bcc2cc;
+        --text-tertiary: #9aa2ae;
+        --border: #272b32;
+        --border-strong: #3a3f48;
+        --accent: #8eb0f7;
+        --accent-soft: rgba(142, 176, 247, 0.2);
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
+    html {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: #0a0a0a;
-      color: #e0e0e0;
-      line-height: 1.7;
-      padding: 40px 20px;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.65;
+      overflow-wrap: break-word;
+    }
+
+    ::selection {
+      background: var(--accent-soft);
+    }
+
+    h1,
+    h2,
+    p,
+    ul,
+    ol {
+      margin: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 3px;
+    }
+
+    strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.9em;
     }
 
     .container {
-      max-width: 700px;
-      margin: 0 auto;
+      max-width: var(--container);
+      margin-inline: auto;
+      padding-inline: var(--gutter);
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 50px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #222;
+    .skip-link {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      z-index: 10;
+      padding: 0.5rem 0.875rem;
+      background: var(--bg);
+      border: 1px solid var(--border-strong);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transform: translateY(-200%);
     }
 
-    .logo {
-      font-size: 48px;
-      color: #c9a962;
-      margin-bottom: 10px;
+    .skip-link:focus {
+      transform: none;
+    }
+
+    /* Header */
+
+    .site-header {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .site-header .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.125rem 1.5rem;
+      padding-block: 0.875rem;
+    }
+
+    .product {
+      color: var(--text);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+    }
+
+    .updated {
+      color: var(--text-tertiary);
+      font-size: 0.8125rem;
+    }
+
+    /* Title */
+
+    .hero {
+      padding-block: 2.5rem 2rem;
     }
 
     h1 {
-      font-size: 28px;
-      font-weight: 600;
-      margin-bottom: 5px;
-      color: #fff;
+      color: var(--text);
+      font-size: clamp(1.875rem, 1.45rem + 2.1vw, 2.625rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.022em;
+      text-wrap: balance;
     }
 
     .subtitle {
-      color: #888;
-      font-size: 14px;
+      margin-top: 0.75rem;
+      color: var(--text-tertiary);
+      font-size: 1.0625rem;
+      line-height: 1.5;
+      text-wrap: balance;
     }
 
-    h2 {
-      font-size: 20px;
-      color: #c9a962;
-      margin: 40px 0 20px 0;
+    /* Layout */
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+      padding-bottom: 4rem;
+    }
+
+    /* Summary */
+
+    .summary {
+      padding: 1.25rem 1.375rem 1.375rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .summary h2 {
+      margin-bottom: 0.5rem;
+      color: var(--text-tertiary);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: 0.01em;
+    }
+
+    .summary p {
+      color: var(--text);
+      text-wrap: pretty;
+    }
+
+    /* Table of contents */
+
+    .toc {
+      padding: 1rem 1.375rem 1.125rem;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.9375rem;
+      line-height: 1.4;
+    }
+
+    .toc-title {
+      margin-bottom: 0.5rem;
+      color: var(--text-tertiary);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .toc ol {
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc a {
+      display: block;
+      padding-block: 0.3125rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .toc a:hover {
+      color: var(--text);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+    }
+
+    .toc .toc-summary {
+      display: none;
+    }
+
+    @media (min-width: 34rem) and (max-width: 63.999rem) {
+      .toc ol {
+        columns: 2;
+        column-gap: 2rem;
+      }
+
+      .toc li {
+        break-inside: avoid;
+      }
+    }
+
+    /* Policy text */
+
+    .policy {
+      min-width: 0;
+      margin-top: 1rem;
+    }
+
+    .policy section + section {
+      margin-top: 2.75rem;
+    }
+
+    .policy section {
+      scroll-margin-top: 1.5rem;
+    }
+
+    .policy h2 {
+      margin-bottom: 0.875rem;
+      color: var(--text);
+      font-size: 1.3125rem;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.012em;
+      text-wrap: balance;
+    }
+
+    .policy p,
+    .policy li {
+      text-wrap: pretty;
+    }
+
+    .policy p + p,
+    .policy p + ul,
+    .policy ul + p,
+    .policy .table-wrap + p {
+      margin-top: 1rem;
+    }
+
+    .policy ul {
+      padding-left: 1.25rem;
+    }
+
+    .policy li + li {
+      margin-top: 0.5rem;
+    }
+
+    .policy li::marker {
+      color: var(--border-strong);
+    }
+
+    .policy .key-point {
+      color: var(--text);
       font-weight: 600;
     }
 
-    p {
-      margin-bottom: 16px;
-      color: #bbb;
+    .policy .key-point + p {
+      margin-top: 0.25rem;
     }
 
-    ul {
-      margin: 16px 0;
-      padding-left: 24px;
-    }
+    /* Tables */
 
-    li {
-      margin-bottom: 10px;
-      color: #bbb;
-    }
-
-    .highlight {
-      background: #1a1a1a;
-      border-left: 3px solid #c9a962;
-      padding: 20px;
-      margin: 24px 0;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .highlight p {
-      margin: 0;
-      color: #ddd;
-    }
-
-    .badge {
-      display: inline-block;
-      background: #1a2e1a;
-      color: #4ade80;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      margin-right: 8px;
-    }
-
-    .badge.no {
-      background: #2e1a1a;
-      color: #f87171;
-    }
-
-    .badge.warn {
-      background: #2e2a1a;
-      color: #fbbf24;
+    .table-wrap {
+      margin-top: 0.25rem;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      font-size: 0.9375em;
+      line-height: 1.55;
     }
 
-    th, td {
-      padding: 12px 16px;
-      text-align: left;
-      border-bottom: 1px solid #222;
-    }
-
-    th {
-      color: #888;
-      font-weight: 500;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
+    th,
     td {
-      color: #bbb;
+      padding: 0.875rem 0;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
     }
 
-    footer {
-      margin-top: 60px;
-      padding-top: 30px;
-      border-top: 1px solid #222;
-      text-align: center;
-      color: #555;
-      font-size: 13px;
+    th + td,
+    th + th,
+    td + td {
+      padding-left: 1.5rem;
     }
 
-    a {
-      color: #c9a962;
-      text-decoration: none;
+    thead th {
+      padding-block: 0.5rem;
+      border-bottom-color: var(--border-strong);
+      color: var(--text-tertiary);
+      font-size: 0.8125rem;
+      font-weight: 600;
     }
 
-    a:hover {
-      text-decoration: underline;
+    tbody th {
+      color: var(--text);
+      font-weight: 500;
     }
 
+    .table-stack tbody th {
+      width: 34%;
+    }
+
+    .table-compact td {
+      width: 5rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    @media (max-width: 39.999rem) {
+      .table-stack,
+      .table-stack tbody,
+      .table-stack tr,
+      .table-stack th,
+      .table-stack td {
+        display: block;
+      }
+
+      .table-stack thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+
+      .table-stack tbody tr {
+        padding-block: 0.875rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .table-stack tbody tr:first-child {
+        border-top: 1px solid var(--border-strong);
+      }
+
+      .table-stack tbody th,
+      .table-stack tbody td {
+        width: auto;
+        padding: 0;
+        border: 0;
+      }
+
+      .table-stack tbody th {
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+      }
+    }
+
+    /* Footer */
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+
+    .site-footer .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem 2rem;
+      padding-block: 1.75rem 2.5rem;
+    }
+
+    .site-footer p + p {
+      margin-top: 0.25rem;
+    }
+
+    /* Wide screens: side table of contents */
+
+    @media (min-width: 48rem) {
+      body {
+        font-size: 1.0625rem;
+      }
+
+      .hero {
+        padding-block: 3.5rem 2.5rem;
+      }
+
+      .summary {
+        padding: 1.5rem 1.75rem 1.625rem;
+      }
+
+      .policy h2 {
+        font-size: 1.4375rem;
+      }
+
+      .policy section + section {
+        margin-top: 3.25rem;
+      }
+    }
+
+    @media (min-width: 64rem) {
+      :root {
+        --container: 59rem;
+        --gutter: 2rem;
+      }
+
+      .layout {
+        grid-template-columns: 13rem minmax(0, 37.5rem);
+        justify-content: space-between;
+        gap: 2.5rem 4rem;
+        padding-bottom: 6rem;
+      }
+
+      .summary {
+        grid-column: 2;
+        grid-row: 1;
+        scroll-margin-top: 1.5rem;
+      }
+
+      .policy {
+        grid-column: 2;
+        grid-row: 2;
+        margin-top: 0;
+      }
+
+      .toc {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        align-self: start;
+        position: sticky;
+        top: 1.5rem;
+        max-height: calc(100vh - 3rem);
+        overflow-y: auto;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        font-size: 0.875rem;
+      }
+
+      .toc-title {
+        margin-bottom: 0.75rem;
+      }
+
+      .toc ol {
+        border-left: 1px solid var(--border);
+        scroll-target-group: auto;
+      }
+
+      .toc .toc-summary {
+        display: list-item;
+      }
+
+      .toc a {
+        margin-left: -1px;
+        padding: 0.3125rem 0 0.3125rem 0.875rem;
+        border-left: 1px solid transparent;
+        outline-offset: -2px;
+      }
+
+      .toc a:hover {
+        border-left-color: var(--border-strong);
+        text-decoration: none;
+      }
+
+      .toc a:target-current {
+        border-left-color: var(--accent);
+        box-shadow: inset 1px 0 0 var(--accent);
+        color: var(--text);
+      }
+    }
+
+    @media print {
+      :root {
+        --bg: #ffffff;
+        --surface: #ffffff;
+        --text: #000000;
+        --text-secondary: #1a1a1a;
+        --text-tertiary: #444444;
+        --border: #cccccc;
+        --border-strong: #999999;
+        --accent: #000000;
+      }
+
+      body {
+        font-size: 11pt;
+      }
+
+      .skip-link,
+      .toc {
+        display: none;
+      }
+
+      .layout {
+        display: block;
+        padding-bottom: 2rem;
+      }
+
+      .summary {
+        margin-bottom: 2rem;
+      }
+
+      .policy h2 {
+        break-after: avoid;
+      }
+
+      tr,
+      li {
+        break-inside: avoid;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">&#9672;</div>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container">
+      <span class="product">Study Together</span>
+      <p class="updated">Last updated <time datetime="2026-11-11">November 11, 2026</time></p>
+    </div>
+  </header>
+
+  <main id="content" class="container">
+    <div class="hero">
       <h1>Study Together Privacy Policy</h1>
       <p class="subtitle">学习记录 — track study time with a friend</p>
-    </header>
-
-    <div class="highlight">
-      <p><strong>Summary:</strong> Study Together stores your email, display name, room code, and study records on a Supabase project used by this extension. Optional timelapse videos go to the same project. A study partner who shares your room code can see your name, study history, and timelapses. Payment is handled by ExtensionPay and Stripe, not by the extension itself.</p>
     </div>
 
-    <h2>What Data We Collect</h2>
-    <p><span class="badge warn">Account and study data</span> We collect the information needed to run shared study tracking. We do not use it for advertising.</p>
+    <div class="layout">
+      <section class="summary" id="summary" aria-labelledby="summary-title">
+        <h2 id="summary-title">Summary</h2>
+        <p>Study Together stores your email, display name, room code, and study records on a Supabase project used by this extension. Optional timelapse videos go to the same project. A study partner who shares your room code can see your name, study history, and timelapses. Payment is handled by ExtensionPay and Stripe, not by the extension itself.</p>
+      </section>
 
-    <h2>Account Information</h2>
-    <ul>
-      <li><strong>Email address:</strong> used to create and sign in to your account, and to send a password-reset email if you ask for one. We do not send marketing email.</li>
-      <li><strong>Password:</strong> sent to Supabase Auth when you sign in or register. It is hashed by Supabase. The extension does not store your password in plain text.</li>
-      <li><strong>Display name / nickname:</strong> chosen by you, shown to your study partner.</li>
-      <li><strong>Room code:</strong> a shared code that links you with a study partner. Anyone who knows the code and creates an account can join that room, so treat it like a shared secret.</li>
-    </ul>
+      <nav class="toc" aria-labelledby="toc-title">
+        <p class="toc-title" id="toc-title">On this page</p>
+        <ol role="list">
+          <li class="toc-summary"><a href="#summary">Summary</a></li>
+          <li><a href="#what-data-we-collect">What Data We Collect</a></li>
+          <li><a href="#account-information">Account Information</a></li>
+          <li><a href="#study-session-data">Study Session Data</a></li>
+          <li><a href="#local-storage-on-your-device">Local Storage on Your Device</a></li>
+          <li><a href="#how-we-use-your-data">How We Use Your Data</a></li>
+          <li><a href="#who-can-see-your-data">Who Can See Your Data</a></li>
+          <li><a href="#what-we-do-not-do">What We Do NOT Do</a></li>
+          <li><a href="#permissions-explained">Permissions Explained</a></li>
+          <li><a href="#payment">Payment</a></li>
+          <li><a href="#data-retention-and-your-choices">Data Retention and Your Choices</a></li>
+          <li><a href="#data-security">Data Security</a></li>
+          <li><a href="#childrens-privacy">Children’s Privacy</a></li>
+          <li><a href="#changes-to-this-policy">Changes to This Policy</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
 
-    <h2>Study Session Data</h2>
-    <ul>
-      <li><strong>Session records:</strong> subject or content, start time, end time, duration, optional notes, and whether a recording was made</li>
-      <li><strong>Live heartbeat:</strong> while a session is running, a timestamp is updated about once a minute so your partner can see that you are currently studying. The “live” state clears after a few minutes without a heartbeat.</li>
-      <li><strong>Timelapse recordings:</strong> optional WebM videos made from camera and/or screen snapshots, uploaded to a private storage bucket if you enable those options</li>
-      <li><strong>Full camera recordings:</strong> optional, saved only to your computer (Downloads/StudyTogether). They are not uploaded to the cloud.</li>
-    </ul>
+      <div class="policy">
+        <section id="what-data-we-collect">
+          <h2>What Data We Collect</h2>
+          <p><strong>Account and study data</strong> We collect the information needed to run shared study tracking. We do not use it for advertising.</p>
+        </section>
 
-    <h2>Local Storage on Your Device</h2>
-    <ul>
-      <li>Preferences such as camera device, timelapse interval, and recent subjects</li>
-      <li>A session token so you can stay signed in</li>
-      <li>The state of a study session that is in progress</li>
-      <li>A small queue of records waiting to sync if you were offline</li>
-    </ul>
-    <p>This local data is removed if you clear the extension’s data or uninstall it. Cloud records remain until you delete them or request account deletion.</p>
+        <section id="account-information">
+          <h2>Account Information</h2>
+          <ul>
+            <li><strong>Email address:</strong> used to create and sign in to your account, and to send a password-reset email if you ask for one. We do not send marketing email.</li>
+            <li><strong>Password:</strong> sent to Supabase Auth when you sign in or register. It is hashed by Supabase. The extension does not store your password in plain text.</li>
+            <li><strong>Display name / nickname:</strong> chosen by you, shown to your study partner.</li>
+            <li><strong>Room code:</strong> a shared code that links you with a study partner. Anyone who knows the code and creates an account can join that room, so treat it like a shared secret.</li>
+          </ul>
+        </section>
 
-    <h2>How We Use Your Data</h2>
-    <ul>
-      <li>To authenticate you and keep you signed in</li>
-      <li>To show you and your study partner each other’s study history, statistics, and optional timelapses</li>
-      <li>To show live “currently studying” status during a session</li>
-      <li>To enforce the 7-day free trial and the one-time unlock, using a paid/trial flag from ExtensionPay</li>
-    </ul>
-    <p>We do not sell your data, and we do not use it to build advertising profiles.</p>
+        <section id="study-session-data">
+          <h2>Study Session Data</h2>
+          <ul>
+            <li><strong>Session records:</strong> subject or content, start time, end time, duration, optional notes, and whether a recording was made</li>
+            <li><strong>Live heartbeat:</strong> while a session is running, a timestamp is updated about once a minute so your partner can see that you are currently studying. The “live” state clears after a few minutes without a heartbeat.</li>
+            <li><strong>Timelapse recordings:</strong> optional WebM videos made from camera and/or screen snapshots, uploaded to a private storage bucket if you enable those options</li>
+            <li><strong>Full camera recordings:</strong> optional, saved only to your computer (Downloads/StudyTogether). They are not uploaded to the cloud.</li>
+          </ul>
+        </section>
 
-    <h2>Who Can See Your Data</h2>
-    <table>
-      <tr>
-        <th>Who</th>
-        <th>What they can see</th>
-      </tr>
-      <tr>
-        <td>You</td>
-        <td>Your account and all of your study records and timelapses</td>
-      </tr>
-      <tr>
-        <td>Your study partner (same room code)</td>
-        <td>Your display name, study session records (subject, times, duration, notes), live status, and timelapse videos. They cannot see your email or password.</td>
-      </tr>
-      <tr>
-        <td>Supabase</td>
-        <td>Hosts authentication, the database, and private file storage (infrastructure provided on AWS). Access is limited by account login and row-level security policies in the project.</td>
-      </tr>
-      <tr>
-        <td>ExtensionPay / Stripe</td>
-        <td>Process the $5 one-time payment if you choose to unlock the extension after the 7-day trial. The extension does not collect or store credit card numbers. ExtensionPay keeps a record of whether your copy is paid or still in trial.</td>
-      </tr>
-    </table>
-    <p>Camera and screen capture are optional and chosen for each session. Chrome or your operating system will ask for permission. If you enable screen timelapse, frames of the window or screen you select (which may include a browser window) are included in the timelapse and uploaded for your room partner to watch.</p>
+        <section id="local-storage-on-your-device">
+          <h2>Local Storage on Your Device</h2>
+          <ul>
+            <li>Preferences such as camera device, timelapse interval, and recent subjects</li>
+            <li>A session token so you can stay signed in</li>
+            <li>The state of a study session that is in progress</li>
+            <li>A small queue of records waiting to sync if you were offline</li>
+          </ul>
+          <p>This local data is removed if you clear the extension’s data or uninstall it. Cloud records remain until you delete them or request account deletion.</p>
+        </section>
 
-    <h2>What We Do NOT Do</h2>
-    <table>
-      <tr>
-        <th>Activity</th>
-        <th>Status</th>
-      </tr>
-      <tr>
-        <td>Sell or rent your data</td>
-        <td><span class="badge no">No</span></td>
-      </tr>
-      <tr>
-        <td>Send marketing email</td>
-        <td><span class="badge no">No</span></td>
-      </tr>
-      <tr>
-        <td>Read the content of websites you visit, other than a screen you choose to record</td>
-        <td><span class="badge no">No</span></td>
-      </tr>
-      <tr>
-        <td>Upload full camera recordings to the cloud</td>
-        <td><span class="badge no">No</span></td>
-      </tr>
-      <tr>
-        <td>Collect your card number in the extension</td>
-        <td><span class="badge no">No</span></td>
-      </tr>
-    </table>
+        <section id="how-we-use-your-data">
+          <h2>How We Use Your Data</h2>
+          <ul>
+            <li>To authenticate you and keep you signed in</li>
+            <li>To show you and your study partner each other’s study history, statistics, and optional timelapses</li>
+            <li>To show live “currently studying” status during a session</li>
+            <li>To enforce the 7-day free trial and the one-time unlock, using a paid/trial flag from ExtensionPay</li>
+          </ul>
+          <p>We do not sell your data, and we do not use it to build advertising profiles.</p>
+        </section>
 
-    <h2>Permissions Explained</h2>
-    <p><strong>storage</strong> and <strong>unlimitedStorage:</strong> Save preferences, sign-in state, an in-progress session, and temporary recordings on your device.</p>
-    <p><strong>offscreen:</strong> Capture camera or screen media in the background and build the timelapse after you stop a session.</p>
-    <p><strong>sidePanel:</strong> Show the sign-in, timer, history, and payment screens beside your current page.</p>
-    <p><strong>downloads:</strong> Save a timelapse or a full camera recording to your Downloads folder when you choose those options.</p>
-    <p><strong>alarms:</strong> Update the live heartbeat about once a minute during an active session.</p>
-    <p><strong>Host permission (ihemptrpmdushxecyvju.supabase.co):</strong> Talk to the Supabase project that provides login, study records, and private timelapse storage.</p>
-    <p><strong>Host permission (extensionpay.com):</strong> Check trial or paid status and open the checkout or restore-purchase page. Card details are entered on ExtensionPay/Stripe, not in the extension.</p>
-    <p>The extension does not declare a camera permission in its manifest. Camera and screen access are requested only when you enable those options, through the browser’s usual prompts.</p>
+        <section id="who-can-see-your-data">
+          <h2 id="who-can-see-your-data-title">Who Can See Your Data</h2>
+          <div class="table-wrap">
+            <table class="table-stack" role="table" aria-labelledby="who-can-see-your-data-title">
+              <thead role="rowgroup">
+                <tr role="row">
+                  <th scope="col" role="columnheader">Who</th>
+                  <th scope="col" role="columnheader">What they can see</th>
+                </tr>
+              </thead>
+              <tbody role="rowgroup">
+                <tr role="row">
+                  <th scope="row" role="rowheader">You</th>
+                  <td role="cell">Your account and all of your study records and timelapses</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Your study partner (same room code)</th>
+                  <td role="cell">Your display name, study session records (subject, times, duration, notes), live status, and timelapse videos. They cannot see your email or password.</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Supabase</th>
+                  <td role="cell">Hosts authentication, the database, and private file storage (infrastructure provided on AWS). Access is limited by account login and row-level security policies in the project.</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">ExtensionPay / Stripe</th>
+                  <td role="cell">Process the $5 one-time payment if you choose to unlock the extension after the 7-day trial. The extension does not collect or store credit card numbers. ExtensionPay keeps a record of whether your copy is paid or still in trial.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Camera and screen capture are optional and chosen for each session. Chrome or your operating system will ask for permission. If you enable screen timelapse, frames of the window or screen you select (which may include a browser window) are included in the timelapse and uploaded for your room partner to watch.</p>
+        </section>
 
-    <h2>Payment</h2>
-    <p>Study Together includes a 7-day free trial. After the trial, a one-time payment of $5 unlocks lifetime access. Payments are processed by ExtensionPay and Stripe. The extension only receives a paid or trial status, not your payment details.</p>
+        <section id="what-we-do-not-do">
+          <h2 id="what-we-do-not-do-title">What We Do NOT Do</h2>
+          <div class="table-wrap">
+            <table class="table-compact" aria-labelledby="what-we-do-not-do-title">
+              <thead>
+                <tr>
+                  <th scope="col">Activity</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Sell or rent your data</th>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <th scope="row">Send marketing email</th>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <th scope="row">Read the content of websites you visit, other than a screen you choose to record</th>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <th scope="row">Upload full camera recordings to the cloud</th>
+                  <td>No</td>
+                </tr>
+                <tr>
+                  <th scope="row">Collect your card number in the extension</th>
+                  <td>No</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
 
-    <h2>Data Retention and Your Choices</h2>
-    <ul>
-      <li>You can view your study history in the extension and delete individual sessions; deleting a session also deletes its timelapse from cloud storage.</li>
-      <li>You can sign out to stop syncing new data from this browser.</li>
-      <li>You can revoke camera permission in Chrome’s settings at any time.</li>
-      <li>Study sessions and timelapses are kept until you delete them or we delete the account at your request.</li>
-      <li>To request deletion of your account and remaining cloud data, email us from the address on the account and ask us to delete it.</li>
-    </ul>
+        <section id="permissions-explained">
+          <h2>Permissions Explained</h2>
+          <p><strong>storage</strong> and <strong>unlimitedStorage:</strong> Save preferences, sign-in state, an in-progress session, and temporary recordings on your device.</p>
+          <p><strong>offscreen:</strong> Capture camera or screen media in the background and build the timelapse after you stop a session.</p>
+          <p><strong>sidePanel:</strong> Show the sign-in, timer, history, and payment screens beside your current page.</p>
+          <p><strong>downloads:</strong> Save a timelapse or a full camera recording to your Downloads folder when you choose those options.</p>
+          <p><strong>alarms:</strong> Update the live heartbeat about once a minute during an active session.</p>
+          <p><strong>Host permission (ihemptrpmdushxecyvju.supabase.co):</strong> Talk to the Supabase project that provides login, study records, and private timelapse storage.</p>
+          <p><strong>Host permission (extensionpay.com):</strong> Check trial or paid status and open the checkout or restore-purchase page. Card details are entered on ExtensionPay/Stripe, not in the extension.</p>
+          <p>The extension does not declare a camera permission in its manifest. Camera and screen access are requested only when you enable those options, through the browser’s usual prompts.</p>
+        </section>
 
-    <h2>Data Security</h2>
-    <p>Data in transit uses HTTPS. Access to cloud records is limited to signed-in users, with database and storage policies intended to restrict each user to their own data and to data in the same room code. No method of transmission or storage is completely secure.</p>
+        <section id="payment">
+          <h2>Payment</h2>
+          <p>Study Together includes a 7-day free trial. After the trial, a one-time payment of $5 unlocks lifetime access. Payments are processed by ExtensionPay and Stripe. The extension only receives a paid or trial status, not your payment details.</p>
+        </section>
 
-    <h2>Children’s Privacy</h2>
-    <p>Study Together is not directed at children under 13, and we do not knowingly collect personal information from children under 13.</p>
+        <section id="data-retention-and-your-choices">
+          <h2>Data Retention and Your Choices</h2>
+          <ul>
+            <li>You can view your study history in the extension and delete individual sessions; deleting a session also deletes its timelapse from cloud storage.</li>
+            <li>You can sign out to stop syncing new data from this browser.</li>
+            <li>You can revoke camera permission in Chrome’s settings at any time.</li>
+            <li>Study sessions and timelapses are kept until you delete them or we delete the account at your request.</li>
+            <li>To request deletion of your account and remaining cloud data, email us from the address on the account and ask us to delete it.</li>
+          </ul>
+        </section>
 
-    <h2>Changes to This Policy</h2>
-    <p>If we make any changes to this privacy policy, we will update this page with the new information and change the “Last Updated” date below. Continued use of the extension after a change means you accept the updated policy.</p>
+        <section id="data-security">
+          <h2>Data Security</h2>
+          <p>Data in transit uses HTTPS. Access to cloud records is limited to signed-in users, with database and storage policies intended to restrict each user to their own data and to data in the same room code. No method of transmission or storage is completely secure.</p>
+        </section>
 
-    <h2>Contact</h2>
-    <p>If you have any questions about this privacy policy, or you want to request account deletion, please contact us at:</p>
-    <p><a href="mailto:xiaoyiruan.ca@gmail.com">xiaoyiruan.ca@gmail.com</a></p>
+        <section id="childrens-privacy">
+          <h2>Children’s Privacy</h2>
+          <p>Study Together is not directed at children under 13, and we do not knowingly collect personal information from children under 13.</p>
+        </section>
 
-    <footer>
-      <p>Last Updated: November 11, 2026</p>
-      <p style="margin-top: 10px;">&#9672; Study Together · 学习记录</p>
-    </footer>
-  </div>
+        <section id="changes-to-this-policy">
+          <h2>Changes to This Policy</h2>
+          <p>If we make any changes to this privacy policy, we will update this page with the new information and change the “Last Updated” date below. Continued use of the extension after a change means you accept the updated policy.</p>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>If you have any questions about this privacy policy, or you want to request account deletion, please contact us at:</p>
+          <p><a href="mailto:xiaoyiruan.ca@gmail.com">xiaoyiruan.ca@gmail.com</a></p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>
+        <p>Last Updated: November 11, 2026</p>
+        <p>Study Together · 学习记录</p>
+      </div>
+      <p>Contact: <a href="mailto:xiaoyiruan.ca@gmail.com">xiaoyiruan.ca@gmail.com</a></p>
+    </div>
+  </footer>
 </body>
 </html>
