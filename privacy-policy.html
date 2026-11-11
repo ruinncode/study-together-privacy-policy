@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Study Together</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: 48px;
+      color: #c9a962;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .subtitle {
+      color: #888;
+      font-size: 14px;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #c9a962;
+      margin: 40px 0 20px 0;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: #bbb;
+    }
+
+    ul {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      color: #bbb;
+    }
+
+    .highlight {
+      background: #1a1a1a;
+      border-left: 3px solid #c9a962;
+      padding: 20px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .highlight p {
+      margin: 0;
+      color: #ddd;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #1a2e1a;
+      color: #4ade80;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .badge.no {
+      background: #2e1a1a;
+      color: #f87171;
+    }
+
+    .badge.warn {
+      background: #2e2a1a;
+      color: #fbbf24;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #222;
+    }
+
+    th {
+      color: #888;
+      font-weight: 500;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    td {
+      color: #bbb;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid #222;
+      text-align: center;
+      color: #555;
+      font-size: 13px;
+    }
+
+    a {
+      color: #c9a962;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">&#9672;</div>
+      <h1>Study Together Privacy Policy</h1>
+      <p class="subtitle">学习记录 — track study time with a friend</p>
+    </header>
+
+    <div class="highlight">
+      <p><strong>Summary:</strong> Study Together stores your email, display name, room code, and study records on a Supabase project used by this extension. Optional timelapse videos go to the same project. A study partner who shares your room code can see your name, study history, and timelapses. Payment is handled by ExtensionPay and Stripe, not by the extension itself.</p>
+    </div>
+
+    <h2>What Data We Collect</h2>
+    <p><span class="badge warn">Account and study data</span> We collect the information needed to run shared study tracking. We do not use it for advertising.</p>
+
+    <h2>Account Information</h2>
+    <ul>
+      <li><strong>Email address:</strong> used to create and sign in to your account, and to send a password-reset email if you ask for one. We do not send marketing email.</li>
+      <li><strong>Password:</strong> sent to Supabase Auth when you sign in or register. It is hashed by Supabase. The extension does not store your password in plain text.</li>
+      <li><strong>Display name / nickname:</strong> chosen by you, shown to your study partner.</li>
+      <li><strong>Room code:</strong> a shared code that links you with a study partner. Anyone who knows the code and creates an account can join that room, so treat it like a shared secret.</li>
+    </ul>
+
+    <h2>Study Session Data</h2>
+    <ul>
+      <li><strong>Session records:</strong> subject or content, start time, end time, duration, optional notes, and whether a recording was made</li>
+      <li><strong>Live heartbeat:</strong> while a session is running, a timestamp is updated about once a minute so your partner can see that you are currently studying. The “live” state clears after a few minutes without a heartbeat.</li>
+      <li><strong>Timelapse recordings:</strong> optional WebM videos made from camera and/or screen snapshots, uploaded to a private storage bucket if you enable those options</li>
+      <li><strong>Full camera recordings:</strong> optional, saved only to your computer (Downloads/StudyTogether). They are not uploaded to the cloud.</li>
+    </ul>
+
+    <h2>Local Storage on Your Device</h2>
+    <ul>
+      <li>Preferences such as camera device, timelapse interval, and recent subjects</li>
+      <li>A session token so you can stay signed in</li>
+      <li>The state of a study session that is in progress</li>
+      <li>A small queue of records waiting to sync if you were offline</li>
+    </ul>
+    <p>This local data is removed if you clear the extension’s data or uninstall it. Cloud records remain until you delete them or request account deletion.</p>
+
+    <h2>How We Use Your Data</h2>
+    <ul>
+      <li>To authenticate you and keep you signed in</li>
+      <li>To show you and your study partner each other’s study history, statistics, and optional timelapses</li>
+      <li>To show live “currently studying” status during a session</li>
+      <li>To enforce the 7-day free trial and the one-time unlock, using a paid/trial flag from ExtensionPay</li>
+    </ul>
+    <p>We do not sell your data, and we do not use it to build advertising profiles.</p>
+
+    <h2>Who Can See Your Data</h2>
+    <table>
+      <tr>
+        <th>Who</th>
+        <th>What they can see</th>
+      </tr>
+      <tr>
+        <td>You</td>
+        <td>Your account and all of your study records and timelapses</td>
+      </tr>
+      <tr>
+        <td>Your study partner (same room code)</td>
+        <td>Your display name, study session records (subject, times, duration, notes), live status, and timelapse videos. They cannot see your email or password.</td>
+      </tr>
+      <tr>
+        <td>Supabase</td>
+        <td>Hosts authentication, the database, and private file storage (infrastructure provided on AWS). Access is limited by account login and row-level security policies in the project.</td>
+      </tr>
+      <tr>
+        <td>ExtensionPay / Stripe</td>
+        <td>Process the $5 one-time payment if you choose to unlock the extension after the 7-day trial. The extension does not collect or store credit card numbers. ExtensionPay keeps a record of whether your copy is paid or still in trial.</td>
+      </tr>
+    </table>
+    <p>Camera and screen capture are optional and chosen for each session. Chrome or your operating system will ask for permission. If you enable screen timelapse, frames of the window or screen you select (which may include a browser window) are included in the timelapse and uploaded for your room partner to watch.</p>
+
+    <h2>What We Do NOT Do</h2>
+    <table>
+      <tr>
+        <th>Activity</th>
+        <th>Status</th>
+      </tr>
+      <tr>
+        <td>Sell or rent your data</td>
+        <td><span class="badge no">No</span></td>
+      </tr>
+      <tr>
+        <td>Send marketing email</td>
+        <td><span class="badge no">No</span></td>
+      </tr>
+      <tr>
+        <td>Read the content of websites you visit, other than a screen you choose to record</td>
+        <td><span class="badge no">No</span></td>
+      </tr>
+      <tr>
+        <td>Upload full camera recordings to the cloud</td>
+        <td><span class="badge no">No</span></td>
+      </tr>
+      <tr>
+        <td>Collect your card number in the extension</td>
+        <td><span class="badge no">No</span></td>
+      </tr>
+    </table>
+
+    <h2>Permissions Explained</h2>
+    <p><strong>storage</strong> and <strong>unlimitedStorage:</strong> Save preferences, sign-in state, an in-progress session, and temporary recordings on your device.</p>
+    <p><strong>offscreen:</strong> Capture camera or screen media in the background and build the timelapse after you stop a session.</p>
+    <p><strong>sidePanel:</strong> Show the sign-in, timer, history, and payment screens beside your current page.</p>
+    <p><strong>downloads:</strong> Save a timelapse or a full camera recording to your Downloads folder when you choose those options.</p>
+    <p><strong>alarms:</strong> Update the live heartbeat about once a minute during an active session.</p>
+    <p><strong>Host permission (ihemptrpmdushxecyvju.supabase.co):</strong> Talk to the Supabase project that provides login, study records, and private timelapse storage.</p>
+    <p><strong>Host permission (extensionpay.com):</strong> Check trial or paid status and open the checkout or restore-purchase page. Card details are entered on ExtensionPay/Stripe, not in the extension.</p>
+    <p>The extension does not declare a camera permission in its manifest. Camera and screen access are requested only when you enable those options, through the browser’s usual prompts.</p>
+
+    <h2>Payment</h2>
+    <p>Study Together includes a 7-day free trial. After the trial, a one-time payment of $5 unlocks lifetime access. Payments are processed by ExtensionPay and Stripe. The extension only receives a paid or trial status, not your payment details.</p>
+
+    <h2>Data Retention and Your Choices</h2>
+    <ul>
+      <li>You can view your study history in the extension and delete individual sessions; deleting a session also deletes its timelapse from cloud storage.</li>
+      <li>You can sign out to stop syncing new data from this browser.</li>
+      <li>You can revoke camera permission in Chrome’s settings at any time.</li>
+      <li>Study sessions and timelapses are kept until you delete them or we delete the account at your request.</li>
+      <li>To request deletion of your account and remaining cloud data, email us from the address on the account and ask us to delete it.</li>
+    </ul>
+
+    <h2>Data Security</h2>
+    <p>Data in transit uses HTTPS. Access to cloud records is limited to signed-in users, with database and storage policies intended to restrict each user to their own data and to data in the same room code. No method of transmission or storage is completely secure.</p>
+
+    <h2>Children’s Privacy</h2>
+    <p>Study Together is not directed at children under 13, and we do not knowingly collect personal information from children under 13.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>If we make any changes to this privacy policy, we will update this page with the new information and change the “Last Updated” date below. Continued use of the extension after a change means you accept the updated policy.</p>
+
+    <h2>Contact</h2>
+    <p>If you have any questions about this privacy policy, or you want to request account deletion, please contact us at:</p>
+    <p><a href="mailto:xiaoyiruan.ca@gmail.com">xiaoyiruan.ca@gmail.com</a></p>
+
+    <footer>
+      <p>Last Updated: November 11, 2026</p>
+      <p style="margin-top: 10px;">&#9672; Study Together · 学习记录</p>
+    </footer>
+  </div>
+</body>
+</html>
